@@ -1,0 +1,90 @@
+{
+    "modules-left": ["pulseaudio", "mpd"],
+    "modules-center": ["sway/workspaces"],
+    "modules-right": ["tray", "battery", "sway/language", "network", "clock"],
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1":"一",
+	    "2":"二",
+	    "3":"三",
+	    "4":"四",
+	    "5":"五",
+	    "6":"六",
+	    "7":"七",
+	    "8":"八",
+	    "9":"九",
+	    "10":"十"
+        }
+    },
+    "mpd": {
+    	"format": "󰝚 {randomIcon} {repeatIcon} {artist} - {title} {stateIcon}",
+	"format-disconnected": "Disconnected 󰟦",
+	"format-stopped": "󰝚 {randomIcon} {artist} - {title} {stateIcon}",
+	"state-icons": {
+		"paused": "󰏤",
+		"playing": "󰐊"
+	},
+	"random-icons": {
+		"on": ""
+	},
+	"repeat-icons": {
+		"on": "󰑖"
+	},
+	"tooltip-format": "MPD (connected)",
+	"tooltip-format-disconnected": "MPD (disconnected)"
+
+    },
+    "tray": {
+        "icon-size": 20,
+        "spacing": 10
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "sway/language": {
+        "format": "{short}"
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% 󰂅",
+        "format-plugged": "{capacity}% 󰂅",
+        "format-alt": "{time} {icon}", 
+	"format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰁹"]
+    },
+    "network": {
+        "format-wifi": "󰤥",
+        "format-ethernet": "󰈁",
+        "format-linked": "(No IP) ",
+        "format-disconnected": "󰤭",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "interval": 1,
+        "signal": 1
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{icon}󰂯",
+        "format-bluetooth-muted": " {icon}󰂯",
+        "format-muted": "",
+        "format-source-muted": "󰍭",
+        "on-click": "pactl set-sink-mute 0 toggle",
+        "format-icons": {
+            "headphone": "󰋋",
+            "headset": "󰋎",
+            "phone": "󰄜",
+            "portable": "",
+            "car": "󰄋",
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+    }
+} 

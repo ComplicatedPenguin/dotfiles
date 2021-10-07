@@ -1,0 +1,90 @@
+* {
+  min-height: 0;
+  font-size: 15;
+  font-family: "Iosevka", "Font Awesome 5 Free", 'Material Icons';
+  font-weight: bold;
+}
+
+window#waybar {
+  color: #ffffff;
+  background-color: #2E3440;
+  border-bottom: none;
+  transition-duration: 0.5s;
+  transition-property: background-color;
+}
+
+#workspaces button {
+  padding: 0.4rem 0.9rem;
+  margin: 5px 2px;
+  background: #2e3440;
+  border-radius: 0.3rem;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button:hover {
+  color: #ffffff;
+  background: rgba(0, 1, 51, 0.6);
+  box-shadow: inherit;
+}
+
+#workspaces button.focused {
+  color: #2e3440;
+  background: #EBCB8B;
+}
+
+#workspaces button.urgent {
+  background-color: #eb4d4b;
+}
+#clock,
+#battery,
+#pulseaudio,
+#mpd,
+#language {
+  padding: 0.4rem 0.9rem;
+  margin: 5px 3px;
+  color: #2e3440;
+  background: #EBCB8B;
+  border-radius: 0.3rem;
+}
+
+#network {
+  font-size: 17;
+  padding: 0.4rem 0.9rem;
+  margin: 5px 3px;
+  color: #2e3440;
+  background: #EBCB8B;
+  border-radius: 0.3rem;
+}
+
+#tray {
+  margin: 5px 4px;
+  background: #2e3440;
+  border-radius: 0.3rem;
+}
+
+#battery.critical:not(.charging) {
+  color: #ECEFF4;
+  background-color: #BF616A;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+label:focus {
+  background-color: #2e3440;
+}
+
+#network.disconnected {
+  font-size: 17;
+  padding: 0.4rem 0.9rem;
+  margin: 5px 3px;
+  color: #2e3440;
+  background: #EBCB8B;
+  border-radius: 0.3rem;
+}
+
+#pulseaudio.muted {
+  background-color: gray;
+}

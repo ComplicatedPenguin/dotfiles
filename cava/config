@@ -1,0 +1,10 @@
+[general]
+
+framerate = 60
+
+bar_width = 4
+bar_spacing = 1
+
+[color]
+
+foreground = "#EBCB8B"
