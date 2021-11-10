@@ -1,26 +1,18 @@
-set completeopt+=noselect
-set hidden
-set showtabline=0
-
-" Specify a directory for plugins
+" Plugins
 set rtp+=~/.local/share/nvim/plugged
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'Shougo/deoplete.nvim'               " Asynchronous Completion
+Plug 'Shougo/deoplete.nvim'
 Plug 'itchyny/lightline.vim'
-Plug 'yuttie/comfortable-motion.vim'      " Smooth scrolling
-Plug 'brooth/far.vim'                     " Find and replace
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'} "An intellisense engine
+Plug 'yuttie/comfortable-motion.vim'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'kassio/neoterm'
 
-Plug 'chriskempson/base16-vim'            " Base 16 colors
+Plug 'chriskempson/base16-vim'
 Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
-
-filetype on
-filetype plugin on
-filetype plugin indent on
-
 "-------------------
 " General settings
 "------------
@@ -37,7 +29,26 @@ if (has("termguicolors"))
    set termguicolors
 endif
 
+set completeopt+=noselect
+set hidden
+set showtabline=0
+filetype on
+filetype plugin on
+filetype plugin indent on
+
+set guifont=Nerd
+set encoding=UTF-8
+
+let g:neoterm_default_mod='belowright' " open terminal in bottom split
+let g:neoterm_size=16 " terminal split size
+let g:neoterm_autoscroll=1 " scroll to the bottom when running a command
+nnoremap <leader><cr> :TREPLSendLine<cr>j " send current line and move down
+vnoremap <leader><cr> :TREPLSendSelection<cr> " send current selection
+
+let g:dart_style_guide = 2
+
 syntax enable                             " enable syntaax highlighting
+
 colorscheme nord
 let g:lightline = {
       \ 'colorscheme': 'nord',

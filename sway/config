@@ -35,11 +35,11 @@
     seat seat0 xcursor_theme Breeze_Obsidian 36
 #
 # Idle:
-
     exec swayidle -w \
-	    timeout 180 'swaylock --font Iosevka --font-size 20 --image ~/Pictures/Wallpapers/bg.png --effect-pixelate 7 --clock --timestr %H:%M --datestr %A --indicator' \
-	    timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-	    before-sleep 'swaylock --font Iosevka --font-size 20 --image ~/Pictures/Wallpapers/bg.png --effect-pixelate 7 --clock --timestr %H:%M --datestr %A --indicator'\
+	    timeout 300 'swaylock --font Iosevka --font-size 20 --image ~/Pictures/Wallpapers/bg.png --clock --timestr %H:%M --datestr %A --indicator' \
+	    timeout 600 'swaymsg "output * dpms off"' \
+		resume 'swaymsg "output * dpms on"' \
+	    before-sleep 'swaylock --font Iosevka --font-size 20 --image ~/Pictures/Wallpapers/bg.png --clock --timestr %H:%M --datestr %A --indicator'
 #
 # Input:
 
@@ -54,9 +54,6 @@
 	    xkb_layout us,ir
 	    xkb_options grp:alt_shift_toggle
 	    }
-
-
-### Key bindings
 #
 # Basics:
 
@@ -208,7 +205,6 @@
     gaps outer 5
 #
 # Status Bar:
-    exec waybar
     exec_always killall waybar;waybar
 #
 #Grimshot:
@@ -220,16 +216,22 @@
 #
 #lock screen:
 
-    bindsym alt+l exec swaylock --font Iosevka --font-size 20 --image ~/Pictures/Wallpapers/bg.png --effect-pixelate 10 --clock --timestr %H:%M --datestr %A --indicator
+    bindsym alt+l exec swaylock --font Iosevka --font-size 20 --image ~/Pictures/Wallpapers/bg.png --clock --timestr %H:%M --datestr %A --indicator
 #
 #Borders:
 
-    #<colorclass>		    <border>	<background>        <text>	<indicator>	<child_border>
-    client.focused 		    $bg     	$bg	   	    $red   	$blue		$red
-    client.focused_inactive	    $bg		$bg	    	    $white	$bg		$bg
-    client.unfocused  	    $bg 	$bg	            $white	$red		$bg
-    client.urgent		    $yellow	$yellow		    $bg		$yellow		$yellow
+    #<colorclass>		    <border>	<background>     <text>	    <indicator>     <child_border>
+    client.focused 		    $bg     	$bg	   	         $green   	$green		    $green
+    client.focused_inactive	$bg	    	$bg	    	     $white	    $bg		        $bg
+    client.unfocused  	    $bg 	    $bg	             $white	    $red		    $bg
+    client.urgent		    $yellow	    $yellow		     $bg		$yellow         $yellow
 
-    default_border pixel 4
+    default_border pixel 3
+#
+# GTK 3 theme:
+    exec_always import-gsettings
+#
+# Set imv to open in floating mode:
+    for_window [title="imv"]  floating enable
 
 include /etc/sway/config.d/*

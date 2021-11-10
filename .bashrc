@@ -1,3 +1,5 @@
+export PATH="/home/complicated_penguin/.local/bin:$PATH"
+export PATH="$PATH:$HOME/builds/depot_tools"
 colorscript -e bars 
 pfetch
 colorscript -e bars
@@ -14,4 +16,4 @@ PS1="
 \[\033[34m\]\W
 \[\033[36m\]  \[\033[32m\]勞 \[\033[37m\]"
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+##[ -f ~/.fzf.bash ] && source ~/.fzf.bash
